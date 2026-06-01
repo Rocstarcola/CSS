@@ -1,8 +1,10 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-col footer-brand">
-      <span class="brand-mark">🧰</span>
-      <span class="brand-text">{{ shop.name }}</span>
+      <span class="footer-brand__lockup">
+        <img class="brand-mark" src="{{ 'logo-icon-light.svg' | asset_url }}" alt="" width="36" height="36">
+        <span class="brand-text">{{ shop.name }}</span>
+      </span>
       <p class="footer-tag">{{ section.settings.tagline }}</p>
       <div class="footer-social">
         {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" aria-label="Instagram">📸</a>{%- endif -%}

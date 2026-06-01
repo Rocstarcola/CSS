@@ -5,11 +5,12 @@
 <header class="site-header" id="top">
   <nav class="nav container" aria-label="Primary">
     <a href="{{ routes.root_url }}" class="brand" aria-label="{{ shop.name }} home">
-      {%- if section.settings.logo != blank -%}
-        {%- capture logo_style -%}width:{{ settings.logo_width }}px;height:auto;{%- endcapture -%}
-        {{ section.settings.logo | image_url: width: 400 | image_tag: widths: '150, 200, 300, 400', style: logo_style }}
+      {%- assign brand_logo = section.settings.logo | default: settings.logo -%}
+      {%- if brand_logo != blank -%}
+        {%- capture logo_style -%}max-width:{{ settings.logo_width }}px;{%- endcapture -%}
+        {{ brand_logo | image_url: width: 600 | image_tag: widths: '200, 300, 450, 600', class: 'brand-logo', style: logo_style, alt: shop.name }}
       {%- else -%}
-        <span class="brand-mark">🧰</span>
+        <img class="brand-mark" src="{{ 'logo-icon.svg' | asset_url }}" alt="" width="44" height="44" loading="eager">
         <span class="brand-text">{{ shop.name }}</span>
       {%- endif -%}
     </a>

@@ -14,17 +14,18 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo image",
-        "info": "Optional. If empty, the shop name is shown with a treasure-box mark."
+        "info": "Upload the full GADGETRON wordmark logo. If empty, the hexagon icon + shop name are shown."
       },
       {
         "type": "range",
         "id": "logo_width",
         "min": 80,
-        "max": 240,
+        "max": 360,
         "step": 10,
         "unit": "px",
-        "label": "Logo width",
-        "default": 150
+        "label": "Max logo width",
+        "info": "Use a wider value for the full wordmark logo, narrower for the icon-only logo.",
+        "default": 220
       },
       {
         "type": "image_picker",

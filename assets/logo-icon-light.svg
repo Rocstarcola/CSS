@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gadgetron">
+  <defs>
+    <mask id="gx-cut-light">
+      <rect width="512" height="512" fill="black"/>
+      <path fill-rule="evenodd" fill="white" d="M256,26 L455,141 L455,371 L256,486 L57,371 L57,141 Z M256,128 L366.85,192 L366.85,320 L256,384 L145.15,320 L145.15,192 Z"/>
+      <rect x="360" y="222" width="150" height="64" fill="black"/>
+      <rect x="298" y="256" width="170" height="30" fill="white"/>
+    </mask>
+  </defs>
+  <rect width="512" height="512" fill="#ffffff" mask="url(#gx-cut-light)"/>
+</svg>
