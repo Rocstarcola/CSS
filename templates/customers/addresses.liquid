@@ -1,0 +1,35 @@
+<section class="account-wrap">
+  <div class="container narrow">
+    <div class="page-header" style="text-align:left;"><h1>{{ 'customer.addresses.title' | t }}</h1></div>
+    <p><a href="{{ routes.account_url }}">&larr; {{ 'customer.account.return' | t }}</a></p>
+
+    <div class="auth-card" style="margin:1.5rem 0;">
+      <h2 style="margin-top:0;">{{ 'customer.addresses.add_new' | t }}</h2>
+      {%- form 'customer_address', customer.new_address, class: 'field-stack' -%}
+        <div class="form-row">
+          <label class="form-field">{{ 'customer.addresses.first_name' | t }}<input type="text" name="address[first_name]"></label>
+          <label class="form-field">{{ 'customer.addresses.last_name' | t }}<input type="text" name="address[last_name]"></label>
+        </div>
+        <label class="form-field">{{ 'customer.addresses.address1' | t }}<input type="text" name="address[address1]"></label>
+        <label class="form-field">{{ 'customer.addresses.address2' | t }}<input type="text" name="address[address2]"></label>
+        <div class="form-row">
+          <label class="form-field">{{ 'customer.addresses.city' | t }}<input type="text" name="address[city]"></label>
+          <label class="form-field">{{ 'customer.addresses.zip' | t }}<input type="text" name="address[zip]"></label>
+        </div>
+        <div class="form-row">
+          <label class="form-field">{{ 'customer.addresses.country' | t }}<input type="text" name="address[country]"></label>
+          <label class="form-field">{{ 'customer.addresses.phone' | t }}<input type="tel" name="address[phone]"></label>
+        </div>
+        <button type="submit" class="btn btn-primary full">{{ 'customer.addresses.add' | t }}</button>
+      {%- endform -%}
+    </div>
+
+    {%- for address in customer.addresses -%}
+      <div class="auth-card" style="margin:1rem 0; max-width:none;">
+        <p>{{ address | format_address }}</p>
+        {%- form 'customer_address', address, method: 'delete' -%}{%- endform -%}
+        <a href="{{ address.url }}" class="btn btn-outline btn-small" data-address-id="{{ address.id }}">{{ 'customer.addresses.edit' | t }}</a>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>

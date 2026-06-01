@@ -1,0 +1,56 @@
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1>{{ section.settings.heading }}</h1>
+      <p class="lead">{{ section.settings.subheading }}</p>
+      <div class="hero-cta">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 }}" class="btn btn-ghost">{{ section.settings.button_label_2 }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.points != blank -%}
+        <ul class="hero-points">
+          {%- assign points = section.settings.points | split: ',' -%}
+          {%- for point in points -%}<li>{{ point | strip }}</li>{%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 700 | image_tag: widths: '400, 600, 700', loading: 'eager' }}
+      {%- else -%}
+        <div class="chest">
+          <div class="chest-lid"></div>
+          <div class="chest-body">
+            <span class="gem g1">💎</span><span class="gem g2">⭐</span>
+            <span class="gem g3">🪀</span><span class="gem g4">🦖</span>
+          </div>
+        </div>
+        <div class="float f1">🚀</div><div class="float f2">🦄</div><div class="float f3">🪙</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "✨ Locally 3D-printed · Made with care" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Turn little visitors into big smiles." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Custom 3D-printed treasure boxes packed with toy prizes for kids. Keep families coming back — and never run out, thanks to our optional refill subscription." },
+    { "type": "text", "id": "button_label", "label": "Primary button", "default": "Shop treasure boxes" },
+    { "type": "url", "id": "button_link", "label": "Primary button link" },
+    { "type": "text", "id": "button_label_2", "label": "Secondary button", "default": "How it works" },
+    { "type": "url", "id": "button_link_2", "label": "Secondary button link", "default": "/#how" },
+    { "type": "text", "id": "points", "label": "Points (comma separated)", "default": "🎁 Kid-approved prizes, 🔁 Set-and-forget refills, 🏷️ Your logo, your colors" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (optional, replaces animation)" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

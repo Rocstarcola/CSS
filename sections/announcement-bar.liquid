@@ -1,0 +1,15 @@
+{%- if section.settings.show and section.settings.text != blank -%}
+  <div class="announcement-bar" style="background: var(--ink); color: #fff; text-align: center; padding: .5rem 1rem; font-weight: 700; font-size: .9rem;">
+    {{ section.settings.text }}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    { "type": "checkbox", "id": "show", "label": "Show announcement", "default": true },
+    { "type": "text", "id": "text", "label": "Text", "default": "Free local delivery on first orders · Subscribe & save 🎁" }
+  ]
+}
+{% endschema %}

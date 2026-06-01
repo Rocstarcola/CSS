@@ -1,0 +1,31 @@
+<section class="account-wrap">
+  <div class="container">
+    <div class="auth-card">
+      <h1>{{ 'customer.login.title' | t }}</h1>
+      {%- form 'customer_login', class: 'field-stack' -%}
+        {%- if form.errors -%}<div class="form-status form-status--error">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <label class="form-field">{{ 'customer.login.email' | t }}
+          <input type="email" name="customer[email]" required>
+        </label>
+        <label class="form-field">{{ 'customer.login.password' | t }}
+          <input type="password" name="customer[password]" required>
+        </label>
+        <button type="submit" class="btn btn-primary full">{{ 'customer.login.sign_in' | t }}</button>
+        <p class="center"><a href="#recover" onclick="document.getElementById('recover').style.display='block';return false;">{{ 'customer.login.forgot_password' | t }}</a></p>
+      {%- endform -%}
+
+      <div id="recover" style="display:none; margin-top:1.5rem; border-top:1px solid var(--line); padding-top:1.5rem;">
+        {%- form 'recover_customer_password', class: 'field-stack' -%}
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+          {%- if form.posted_successfully? -%}<div class="form-status form-status--success">{{ 'customer.recover_password.success' | t }}</div>{%- endif -%}
+          <label class="form-field">{{ 'customer.recover_password.email' | t }}
+            <input type="email" name="email" required>
+          </label>
+          <button type="submit" class="btn btn-outline full">{{ 'customer.recover_password.submit' | t }}</button>
+        {%- endform -%}
+      </div>
+
+      <p class="center" style="margin-top:1.5rem;">New here? <a href="{{ routes.account_register_url }}">{{ 'customer.register.title' | t }}</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<section id="faq" class="section">
+  <div class="container narrow">
+    <div class="section-head">
+      <p class="eyebrow center">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="faq">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}{% if block.settings.open %} open{% endif %}>
+          <summary>{{ block.settings.question }}</summary>
+          <div>{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false },
+        { "type": "text", "id": "question", "label": "Question", "default": "Are the prizes safe for kids?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Yes. We curate age-appropriate toy prizes and clearly note any items meant for older children.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "Are the prizes safe for kids?", "answer": "<p>Yes. We curate age-appropriate toy prizes and clearly note any items meant for older children. Let us know your typical visitor age and we'll tailor the mix.</p>" } },
+        { "type": "qa", "settings": { "question": "How does the refill subscription work?", "answer": "<p>Pick a frequency — monthly or quarterly — and a fresh bag of prizes ships to you automatically. You can pause, skip, or cancel anytime, no contracts.</p>" } },
+        { "type": "qa", "settings": { "question": "Can I put my logo on the box?", "answer": "<p>Absolutely. We can print your name, logo, and brand colors right into the box for a polished, custom look.</p>" } },
+        { "type": "qa", "settings": { "question": "What are the boxes made of?", "answer": "<p>Durable PLA plastic, 3D-printed in-house. They're sturdy, reusable, and easy to wipe clean.</p>" } },
+        { "type": "qa", "settings": { "question": "Do you offer fully custom designs?", "answer": "<p>Yes! Want a box shaped like your mascot or a special theme? Tell us your idea and we'll design it.</p>" } },
+        { "type": "qa", "settings": { "question": "Where do you deliver?", "answer": "<p>We're starting local with pickup and nearby delivery, and can ship for subscription refills. Reach out and we'll sort out the best option.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

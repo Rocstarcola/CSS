@@ -1,0 +1,99 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Gadgetron",
+    "theme_version": "1.0.0",
+    "theme_author": "Gadgetron",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image",
+        "info": "Optional. If empty, the shop name is shown with a treasure-box mark."
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 80,
+        "max": 240,
+        "step": 10,
+        "unit": "px",
+        "label": "Logo width",
+        "default": 150
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (teal)",
+        "default": "#1fb3a6"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Highlight (gold)",
+        "default": "#f6b531"
+      }
+    ]
+  },
+  {
+    "name": "Product cards",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "card_quick_add",
+        "label": "Show quick add-to-cart button",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          { "value": "page", "label": "Cart page" },
+          { "value": "drawer", "label": "Slide-out drawer" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Enable order notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "text", "id": "social_instagram_link", "label": "Instagram URL" },
+      { "type": "text", "id": "social_facebook_link", "label": "Facebook URL" },
+      { "type": "text", "id": "social_tiktok_link", "label": "TikTok URL" }
+    ]
+  }
+]

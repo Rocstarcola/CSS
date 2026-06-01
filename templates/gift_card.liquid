@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="container narrow center">
+    <div style="font-size:3rem;">🎁</div>
+    <h1>{{ shop.name }} Gift Card</h1>
+    <p class="price center" style="justify-content:center;"><span class="amt">{{ gift_card.balance | money }}</span></p>
+    <div style="background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow); max-width:440px; margin:1.5rem auto;">
+      {{ gift_card.qr_identifier }}
+      <p style="font-family:'Baloo 2'; font-size:1.4rem; letter-spacing:.1em; margin:1rem 0 0;">{{ gift_card.code | format_code }}</p>
+    </div>
+    <a href="{{ shop.url }}" class="btn btn-primary">Start shopping</a>
+  </div>
+</section>

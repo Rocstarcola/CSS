@@ -1,0 +1,24 @@
+<section class="account-wrap">
+  <div class="container">
+    <div class="auth-card">
+      <h1>{{ 'customer.register.title' | t }}</h1>
+      {%- form 'create_customer', class: 'field-stack' -%}
+        {%- if form.errors -%}<div class="form-status form-status--error">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <label class="form-field">{{ 'customer.register.first_name' | t }}
+          <input type="text" name="customer[first_name]">
+        </label>
+        <label class="form-field">{{ 'customer.register.last_name' | t }}
+          <input type="text" name="customer[last_name]">
+        </label>
+        <label class="form-field">{{ 'customer.register.email' | t }}
+          <input type="email" name="customer[email]" required>
+        </label>
+        <label class="form-field">{{ 'customer.register.password' | t }}
+          <input type="password" name="customer[password]" required>
+        </label>
+        <button type="submit" class="btn btn-primary full">{{ 'customer.register.submit' | t }}</button>
+      {%- endform -%}
+      <p class="center" style="margin-top:1.5rem;">Already have an account? <a href="{{ routes.account_login_url }}">{{ 'customer.login.sign_in' | t }}</a></p>
+    </div>
+  </div>
+</section>

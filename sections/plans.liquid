@@ -1,0 +1,72 @@
+<section id="plans" class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="section-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <div class="plans">
+      {%- for block in section.blocks -%}
+        <article class="plan {% if block.settings.featured %}plan-best{% endif %}" {{ block.shopify_attributes }}>
+          {%- if block.settings.badge != blank -%}<div class="badge">{{ block.settings.badge }}</div>{%- endif -%}
+          <h3>{{ block.settings.title }}</h3>
+          <p class="plan-tag">{{ block.settings.tag }}</p>
+          <p class="price"><span class="amt">{{ block.settings.price }}</span><span class="per">{{ block.settings.price_note }}</span></p>
+          <p class="plan-desc">{{ block.settings.description }}</p>
+          {%- if block.settings.features != blank -%}
+            <ul class="plan-list">
+              {%- assign feats = block.settings.features | newline_to_br | split: '<br />' -%}
+              {%- for feat in feats -%}
+                {%- assign f = feat | strip -%}
+                {%- if f != blank -%}<li>✔ {{ f }}</li>{%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          <a href="{{ block.settings.button_link | default: '#contact' }}" class="btn {% if block.settings.featured %}btn-primary{% else %}btn-outline{% endif %} full">{{ block.settings.button_label }}</a>
+        </article>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.note != blank -%}<p class="note center">{{ section.settings.note }}</p>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Plans & subscriptions",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Plans & Refills" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Simple plans, no surprises" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Buy a box once, or subscribe and let the prizes restock themselves." },
+    { "type": "richtext", "id": "note", "label": "Footnote", "default": "<p>Prices are tailored to your box choice, prize mix, and refill frequency.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan",
+      "settings": [
+        { "type": "checkbox", "id": "featured", "label": "Highlight this plan", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Starter" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "One-time" },
+        { "type": "text", "id": "price", "label": "Price", "default": "From $—" },
+        { "type": "text", "id": "price_note", "label": "Price note", "default": "/ get a quote" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "A single treasure box, filled and ready." },
+        { "type": "textarea", "id": "features", "label": "Features (one per line)", "default": "1 custom treasure box\nFirst fill of prizes included\nReorder refills anytime" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plans & subscriptions",
+      "blocks": [
+        { "type": "plan", "settings": { "title": "Starter", "tag": "One-time", "price": "Get a quote", "price_note": "", "description": "A single treasure box, filled and ready. No subscription required.", "features": "1 custom treasure box\nFirst fill of prizes included\nReorder refills anytime", "button_label": "Shop boxes" } },
+        { "type": "plan", "settings": { "featured": true, "badge": "Best Value", "title": "Refill Club", "tag": "Subscription", "price": "Monthly", "price_note": "or quarterly", "description": "Prize refills delivered on a schedule so your box is always full.", "features": "Everything in Starter\nAuto refills (you choose how often)\nRotating prize themes\nPause or cancel anytime", "button_label": "Start a subscription" } },
+        { "type": "plan", "settings": { "title": "Multi-Shop", "tag": "For chains & franchises", "price": "Custom", "price_note": "volume rates", "description": "Boxes and refills for multiple locations, billed together.", "features": "Bulk box pricing\nCoordinated refill deliveries\nConsistent branding", "button_label": "Talk to us" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

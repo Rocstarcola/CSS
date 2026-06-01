@@ -1,43 +1,79 @@
-# Treasure Trove 3D
+# Gadgetron — Shopify Theme
 
-A website for a 3D-printing business that supplies other businesses with custom
-3D-printed **treasure boxes** filled with toy prizes for kids — plus an optional
-**subscription** for periodic prize refills.
+A custom **Shopify (Online Store 2.0) theme** for **Gadgetron**, a 3D-printing
+business that sells businesses custom 3D-printed **treasure boxes** filled with
+toy prizes for kids — plus an optional **subscription** for periodic prize refills.
 
-## What's here
+Playful treasure look, fully responsive, no build step.
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | The full single-page site (hero, how-it-works, boxes, plans, B2B section, FAQ, contact). |
-| `styles.css` | All styling — playful treasure theme, fully responsive. |
-| `script.js` | Mobile menu, contact-form validation, scroll reveal. |
+## Theme structure
 
-No build step or dependencies. It's plain HTML/CSS/JS.
-
-## Run it locally
-
-Just open `index.html` in a browser, or serve the folder:
-
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+```
+assets/        theme.css, theme.js
+config/         settings_schema.json, settings_data.json   (theme editor settings)
+layout/         theme.liquid, password.liquid
+locales/        en.default.json
+sections/       header, footer, hero, how-it-works, featured-collection,
+                plans, business, faq, contact, cart-drawer, and all "main-*"
+                page sections (product, collection, cart, search, blog, etc.)
+snippets/       product-card, cart-drawer-contents
+templates/      JSON templates (index, product, collection, cart, …) +
+                Liquid templates (password, gift_card, customers/*)
 ```
 
-## Customize
+The homepage is assembled in `templates/index.json` from editable sections, so
+your son can rearrange/edit everything from **Online Store → Customize** in
+Shopify without touching code.
 
-- **Business name / logo** — search for `Treasure Trove 3D` and the `🧰` emoji in
-  `index.html` and swap in the real name/logo.
-- **Box names, plans, prices** — edit the "The Boxes" and "Plans & Refills"
-  sections in `index.html`. Prices currently say "get a quote"; add real numbers
-  when ready.
-- **Contact form** — `script.js` currently shows a success message only. To
-  actually receive submissions, point the form at a service like
-  [Formspree](https://formspree.io), [Netlify Forms](https://docs.netlify.com/forms/setup/),
-  or your own email API (see the `TODO` in `script.js`).
-- **Colors** — tweak the CSS variables at the top of `styles.css`.
+## Install it into Shopify
 
-## Deploy
+You can't open `theme.liquid` in a browser like a plain site — it needs Shopify
+to render. Two ways to get it into the Gadgetron store:
 
-This is a static site, so it works on any static host:
-GitHub Pages, Netlify, Vercel, or Cloudflare Pages. For GitHub Pages, enable
-Pages on this branch and point it at the root.
+**Option A — Shopify CLI (recommended for live preview):**
+```bash
+# one-time: https://shopify.dev/docs/themes/tools/cli
+shopify theme dev --store gadgetron.myshopify.com   # live local preview
+shopify theme push                                   # upload to the store
+```
+
+**Option B — Upload a ZIP:**
+1. Zip the contents of this folder (the `assets/`, `config/`, `layout/`, etc.
+   folders must be at the root of the zip — not inside another folder).
+2. In Shopify admin: **Online Store → Themes → Add theme → Upload zip file**.
+3. Click **Customize** to set it up, then **Publish** when ready.
+
+## First-time setup in Shopify admin
+
+1. **Add products** — create your treasure boxes as products. Put them in a
+   collection with the handle **`treasure-boxes`** so they show on the homepage
+   (or change the collection in the homepage "Featured collection" section).
+2. **Navigation** — Online Store → Navigation: set up the `main-menu` (Shop,
+   How It Works `/#how`, Plans `/#plans`, For Business `/#business`, FAQ `/#faq`).
+3. **Subscriptions / refills** — install a subscriptions app (e.g. Shopify
+   Subscriptions, Recharge, or Seal). Once a product has selling plans, the
+   product page automatically shows "One-time" vs. the subscription options, and
+   the cart shows the refill schedule. No theme code changes needed.
+4. **Contact form** — the homepage quote form uses Shopify's built-in contact
+   form, so submissions email the store's contact email
+   (Settings → Store details). No extra service required.
+5. **Branding** — Customize → Theme settings:
+   - Upload a **logo** (otherwise the shop name shows with a 🧰 mark)
+   - Set **accent (teal)** and **highlight (gold)** colors
+   - Choose **cart drawer** vs. cart page
+
+## Customizing content
+
+Almost everything is editable in the theme editor as section/block settings:
+hero text & buttons, the four "How it works" steps, plan cards (including the
+subscription "Refill Club"), business benefits, the "Perfect for" list, and FAQ
+items. Colors live in **Theme settings** and in the CSS variables at the top of
+`assets/theme.css`.
+
+## Notes
+
+- Online Store 2.0 theme; works on any current Shopify plan.
+- The product page supports multiple images, variants, quantity steppers, and
+  subscription selling plans, with an AJAX slide-out cart drawer.
+- A "treasure-boxes" collection and at least one product are needed before the
+  storefront looks populated; placeholder cards show until then.

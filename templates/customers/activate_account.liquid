@@ -1,0 +1,18 @@
+<section class="account-wrap">
+  <div class="container">
+    <div class="auth-card">
+      <h1>Activate your account</h1>
+      {%- form 'activate_customer_password', class: 'field-stack' -%}
+        {%- if form.errors -%}<div class="form-status form-status--error">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <label class="form-field">{{ 'customer.login.password' | t }}
+          <input type="password" name="customer[password]" required>
+        </label>
+        <label class="form-field">Confirm password
+          <input type="password" name="customer[password_confirmation]" required>
+        </label>
+        <button type="submit" class="btn btn-primary full">Activate</button>
+        <button type="submit" name="decline" class="btn btn-outline full">Decline invitation</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>

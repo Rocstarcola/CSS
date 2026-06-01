@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "trust": { "type": "trust-strip", "settings": {} },
+    "how": { "type": "how-it-works", "settings": {} },
+    "boxes": {
+      "type": "featured-collection",
+      "settings": { "collection": "treasure-boxes" }
+    },
+    "plans": { "type": "plans", "settings": {} },
+    "business": { "type": "business", "settings": {} },
+    "faq": { "type": "faq", "settings": {} },
+    "contact": { "type": "contact", "settings": {} }
+  },
+  "order": ["hero", "trust", "how", "boxes", "plans", "business", "faq", "contact"]
+}

@@ -1,0 +1,26 @@
+<section class="account-wrap">
+  <div class="container narrow">
+    <div class="page-header" style="text-align:left;"><h1>{{ 'customer.orders.order_number' | t }} {{ order.name }}</h1></div>
+    <p style="color:var(--ink-soft);">{{ order.created_at | date: '%B %d, %Y' }}</p>
+
+    <table class="account-table" style="margin-top:1.5rem;">
+      <thead><tr><th>Item</th><th>Qty</th><th>Total</th></tr></thead>
+      <tbody>
+        {%- for line in order.line_items -%}
+          <tr>
+            <td>{{ line.title }}{% if line.selling_plan_allocation %}<br><small>🔁 {{ line.selling_plan_allocation.selling_plan.name }}</small>{% endif %}</td>
+            <td>{{ line.quantity }}</td>
+            <td>{{ line.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2">Subtotal</td><td>{{ order.line_items_subtotal_price | money }}</td></tr>
+        <tr><td colspan="2">Shipping</td><td>{{ order.shipping_price | money }}</td></tr>
+        <tr><td colspan="2"><strong>Total</strong></td><td><strong>{{ order.total_net_amount | money }}</strong></td></tr>
+      </tfoot>
+    </table>
+
+    <p style="margin-top:2rem;"><a href="{{ routes.account_url }}">&larr; {{ 'customer.account.return' | t }}</a></p>
+  </div>
+</section>

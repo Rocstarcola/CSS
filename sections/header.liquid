@@ -1,0 +1,56 @@
+<script>
+  window.themeMoneyFormat = {{ shop.money_format | json }};
+</script>
+
+<header class="site-header" id="top">
+  <nav class="nav container" aria-label="Primary">
+    <a href="{{ routes.root_url }}" class="brand" aria-label="{{ shop.name }} home">
+      {%- if section.settings.logo != blank -%}
+        {%- capture logo_style -%}width:{{ settings.logo_width }}px;height:auto;{%- endcapture -%}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: widths: '150, 200, 300, 400', style: logo_style }}
+      {%- else -%}
+        <span class="brand-mark">🧰</span>
+        <span class="brand-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      {%- for link in section.settings.menu.links -%}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+
+    <div class="nav-actions">
+      <a href="{{ routes.search_url }}" class="nav-icon" aria-label="Search">🔍</a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="nav-icon" aria-label="Account">👤</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="nav-icon" data-cart-link aria-label="Cart">
+        🛒 <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} style="display:none"{% endif %}>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (overrides theme logo)"
+    }
+  ]
+}
+{% endschema %}

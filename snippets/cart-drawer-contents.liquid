@@ -1,0 +1,37 @@
+<div data-cart-drawer-items>
+  {%- if cart.item_count > 0 -%}
+    <div class="cart-drawer__items">
+      {%- for item in cart.items -%}
+        <div class="cart-item" style="grid-template-columns: 70px 1fr auto;">
+          <a href="{{ item.url }}" class="cart-item__media" style="width:70px;height:70px;">
+            {%- if item.image -%}{{ item.image | image_url: width: 140 | image_tag: widths: '70,140', alt: item.title }}{%- else -%}🧰{%- endif -%}
+          </a>
+          <div>
+            <div class="cart-item__title" style="font-size:1rem;"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
+            {%- unless item.variant.title contains 'Default' -%}<div class="cart-item__variant">{{ item.variant.title }}</div>{%- endunless -%}
+            {%- if item.selling_plan_allocation -%}<div class="cart-item__selling-plan">🔁 {{ item.selling_plan_allocation.selling_plan.name }}</div>{%- endif -%}
+            <button type="button" class="cart-item__remove" data-cart-remove="{{ item.key }}">{{ 'cart.general.remove' | t }}</button>
+          </div>
+          <div class="cart-item__price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="cart-drawer__foot">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:700;">{{ 'cart.general.subtotal' | t }}</span>
+        <span class="cart-subtotal" style="font-size:1.2rem;">{{ cart.total_price | money }}</span>
+      </div>
+      <p class="cart-taxes" style="margin:0;">{{ 'cart.general.taxes_and_shipping' | t }}</p>
+      <a href="{{ routes.cart_url }}" class="btn btn-outline full">{{ 'cart.general.title' | t }}</a>
+      <form action="{{ routes.cart_url }}" method="post">
+        <button type="submit" name="checkout" class="btn btn-primary full">{{ 'cart.general.checkout' | t }}</button>
+      </form>
+    </div>
+  {%- else -%}
+    <div class="cart-empty" style="padding:3rem 1.4rem;">
+      <div class="chest-emoji">🧰</div>
+      <p style="font-weight:700;">{{ 'cart.general.empty' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary" data-cart-close>{{ 'cart.general.continue_shopping' | t }}</a>
+    </div>
+  {%- endif -%}
+</div>

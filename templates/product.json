@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": { "type": "main-product", "settings": {} },
+    "related": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "You may also like",
+        "heading": "More treasure",
+        "subheading": "",
+        "limit": 4,
+        "per_row": "4",
+        "button_label": ""
+      }
+    }
+  },
+  "order": ["main", "related"]
+}

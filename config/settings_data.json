@@ -1,0 +1,20 @@
+{
+  "current": {
+    "color_accent": "#1fb3a6",
+    "color_gold": "#f6b531",
+    "logo_width": 150,
+    "show_vendor": false,
+    "card_quick_add": true,
+    "cart_type": "drawer",
+    "show_cart_note": true
+  },
+  "presets": {
+    "Gadgetron": {
+      "color_accent": "#1fb3a6",
+      "color_gold": "#f6b531",
+      "logo_width": 150,
+      "card_quick_add": true,
+      "cart_type": "drawer"
+    }
+  }
+}

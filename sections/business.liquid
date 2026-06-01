@@ -1,0 +1,65 @@
+<section id="business" class="section section-alt">
+  <div class="container business-grid">
+    <div class="business-copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      <ul class="benefits">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'benefit' -%}
+            <li {{ block.shopify_attributes }}>
+              <span>{{ block.settings.icon }}</span>
+              <div><strong>{{ block.settings.title }}</strong><p>{{ block.settings.text }}</p></div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+    <div class="business-who">
+      <h3>{{ section.settings.who_title }}</h3>
+      <ul class="who-list">
+        {%- assign items = section.settings.who_list | newline_to_br | split: '<br />' -%}
+        {%- for item in items -%}
+          {%- assign t = item | strip -%}
+          {%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "For business",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why businesses love it" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A tiny treasure box, a big competitive edge" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Families choose where to spend based on the little things. A treasure box turns an ordinary visit into something kids ask to come back for — and gives parents one more reason to pick you." },
+    { "type": "text", "id": "who_title", "label": "\"Perfect for\" title", "default": "Perfect for" },
+    { "type": "textarea", "id": "who_list", "label": "\"Perfect for\" items (one per line)", "default": "🍽️ Restaurants & cafés\n🦷 Dental & pediatric offices\n💇 Salons & barbershops\n🏥 Clinics & waiting rooms\n🛍️ Retail & checkout counters\n🚗 Auto shops & dealerships\n🎉 Events & fundraisers" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "👨‍👩‍👧" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Bring families back" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Kids remember the prize box and beg to return." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "For business",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "👨‍👩‍👧", "title": "Bring families back", "text": "Kids remember the prize box and beg to return." } },
+        { "type": "benefit", "settings": { "icon": "🤝", "title": "Stand out locally", "text": "A memorable touch competitors don't offer." } },
+        { "type": "benefit", "settings": { "icon": "🧠", "title": "Zero hassle", "text": "We handle printing, prizes, and refills. You just smile." } },
+        { "type": "benefit", "settings": { "icon": "🎨", "title": "On-brand", "text": "Your logo and colors right on the box." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
