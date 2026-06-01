@@ -4,7 +4,7 @@
       {%- for item in cart.items -%}
         <div class="cart-item" style="grid-template-columns: 70px 1fr auto;">
           <a href="{{ item.url }}" class="cart-item__media" style="width:70px;height:70px;">
-            {%- if item.image -%}{{ item.image | image_url: width: 140 | image_tag: widths: '70,140', alt: item.title }}{%- else -%}🧰{%- endif -%}
+            {%- if item.image -%}{{ item.image | image_url: width: 140 | image_tag: widths: '70,140', alt: item.title }}{%- else -%}⚙️{%- endif -%}
           </a>
           <div>
             <div class="cart-item__title" style="font-size:1rem;"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
@@ -29,7 +29,7 @@
     </div>
   {%- else -%}
     <div class="cart-empty" style="padding:3rem 1.4rem;">
-      <div class="chest-emoji">🧰</div>
+      <div class="chest-emoji">📦</div>
       <p style="font-weight:700;">{{ 'cart.general.empty' | t }}</p>
       <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary" data-cart-close>{{ 'cart.general.continue_shopping' | t }}</a>
     </div>

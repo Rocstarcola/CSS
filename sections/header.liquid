@@ -11,7 +11,11 @@
         {{ brand_logo | image_url: width: 600 | image_tag: widths: '200, 300, 450, 600', class: 'brand-logo', style: logo_style, alt: shop.name }}
       {%- else -%}
         <img class="brand-mark" src="{{ 'logo-icon.svg' | asset_url }}" alt="" width="44" height="44" loading="eager">
-        <span class="brand-text">{{ shop.name }}</span>
+        {%- if shop.name == 'Gadgetron' -%}
+          <span class="brand-text">Gadget<span class="brand-accent">ron</span></span>
+        {%- else -%}
+          <span class="brand-text">{{ shop.name }}</span>
+        {%- endif -%}
       {%- endif -%}
     </a>
 

@@ -7,7 +7,7 @@
         {%- for item in cart.items -%}
           <div class="cart-item">
             <a href="{{ item.url }}" class="cart-item__media">
-              {%- if item.image -%}{{ item.image | image_url: width: 180 | image_tag: widths: '90, 180', alt: item.title }}{%- else -%}🧰{%- endif -%}
+              {%- if item.image -%}{{ item.image | image_url: width: 180 | image_tag: widths: '90, 180', alt: item.title }}{%- else -%}⚙️{%- endif -%}
             </a>
             <div>
               <div class="cart-item__title"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
@@ -39,7 +39,7 @@
       </form>
     {%- else -%}
       <div class="cart-empty">
-        <div class="chest-emoji">🧰</div>
+        <div class="chest-emoji">📦</div>
         <p style="font-size:1.2rem; font-weight:700;">{{ 'cart.general.empty' | t }}</p>
         <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">{{ 'cart.general.continue_shopping' | t }}</a>
       </div>

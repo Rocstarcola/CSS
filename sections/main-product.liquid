@@ -6,7 +6,7 @@
           {%- if product.featured_media -%}
             {{ product.featured_media | image_url: width: 900 | image_tag: widths: '450, 700, 900', loading: 'eager', alt: product.featured_media.alt | default: product.title }}
           {%- else -%}
-            <div class="product-gallery__placeholder">🧰</div>
+            <div class="product-gallery__placeholder">⚙️</div>
           {%- endif -%}
         </div>
         {%- if product.media.size > 1 -%}

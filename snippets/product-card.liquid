@@ -14,7 +14,7 @@
     {%- if product.featured_media -%}
       {{ product.featured_media | image_url: width: 600 | image_tag: widths: '300, 450, 600', loading: 'lazy', alt: product.featured_media.alt | default: product.title }}
     {%- else -%}
-      <span class="product-card__placeholder">🧰</span>
+      <span class="product-card__placeholder">⚙️</span>
     {%- endif -%}
     {%- if on_sale -%}<span class="product-card__badge">Sale</span>{%- elsif product.available == false -%}<span class="product-card__badge">Sold out</span>{%- endif -%}
   </a>
