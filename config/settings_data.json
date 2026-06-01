@@ -10,9 +10,9 @@
 {
   "current": {
     "logo": "shopify://shop_images/Company_Logo.png",
-    "logo_width": 150,
+    "logo_width": 260,
     "favicon": "shopify://shop_images/SoloLogo.png",
-    "color_accent": "#1fb3a6",
+    "color_accent": "#e8401f",
     "color_gold": "#f6b531",
     "show_vendor": false,
     "card_quick_add": true,
@@ -22,9 +22,9 @@
   },
   "presets": {
     "Gadgetron": {
-      "color_accent": "#1fb3a6",
+      "color_accent": "#e8401f",
       "color_gold": "#f6b531",
-      "logo_width": 150,
+      "logo_width": 260,
       "card_quick_add": true,
       "cart_type": "drawer"
     }

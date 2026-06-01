@@ -2,8 +2,8 @@
 :root {
   --ink: #1f2440;
   --ink-soft: #4b5168;
-  --teal: #1fb3a6;
-  --teal-dark: #128c82;
+  --teal: #e8401f;
+  --teal-dark: #c4321a;
   --gold: #f6b531;
   --gold-dark: #e09c12;
   --coral: #ff6b6b;
@@ -95,9 +95,9 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(900px 500px at 80% -10%, rgba(246,181,49,.55), transparent 60%),
-    radial-gradient(700px 500px at 0% 110%, rgba(255,107,107,.45), transparent 55%),
-    linear-gradient(135deg, #16a99c 0%, #128c82 55%, #0e6f78 100%);
+    radial-gradient(900px 500px at 80% -10%, rgba(246,181,49,.6), transparent 60%),
+    radial-gradient(700px 500px at 0% 110%, rgba(255,107,107,.5), transparent 55%),
+    linear-gradient(135deg, #ff6b45 0%, #e8401f 55%, #c4321a 100%);
 }
 .hero-inner { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; padding: 4.5rem 0 5rem; }
 .eyebrow {
@@ -213,7 +213,7 @@ img { max-width: 100%; height: auto; display: block; }
 .faq details p { margin: 0 0 1rem; color: var(--ink-soft); }
 
 /* ===== Contact / CTA ===== */
-.section-cta { background: linear-gradient(135deg, #16a99c, #0e6f78); color: #fff; }
+.section-cta { background: linear-gradient(135deg, #f1542e, #c4321a); color: #fff; }
 .contact-form { background: var(--paper); color: var(--ink); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow); display: grid; gap: 1.1rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .contact-form label, .form-field label { display: grid; gap: .4rem; font-weight: 700; font-size: .95rem; }
