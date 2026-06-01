@@ -270,10 +270,16 @@ img { max-width: 100%; height: auto; display: block; }
 .qty-stepper { display: inline-flex; align-items: center; border: 2px solid var(--line); border-radius: 999px; overflow: hidden; }
 .qty-stepper button { background: none; border: 0; width: 40px; height: 44px; font-size: 1.3rem; cursor: pointer; color: var(--ink); }
 .qty-stepper input { width: 48px; text-align: center; border: 0; font-size: 1rem; font-weight: 700; background: transparent; }
-.selling-plans { display: grid; gap: .6rem; }
-.selling-plan-option { border: 2px solid var(--line); border-radius: 14px; padding: .8rem 1rem; cursor: pointer; display: flex; gap: .6rem; align-items: flex-start; font-weight: 600; }
+.selling-plans { display: grid; gap: .6rem; border: 0; padding: 0; margin: 0; }
+.selling-plans__legend { font-weight: 800; font-size: .9rem; padding: 0; margin: 0 0 .2rem; }
+.selling-plans__group-name { font-weight: 800; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); margin: .4rem 0 0; }
+.selling-plan-option { border: 2px solid var(--line); border-radius: 14px; padding: .8rem 1rem; cursor: pointer; display: flex; gap: .6rem; align-items: center; font-weight: 600; }
 .selling-plan-option:has(input:checked) { border-color: var(--teal); background: rgba(31,179,166,.08); }
-.selling-plan-option strong { font-family: "Baloo 2"; }
+.selling-plan-option__text { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; flex: 1; }
+.selling-plan-option__text strong { font-family: "Baloo 2"; }
+.selling-plan-option__price { margin-left: auto; font-weight: 800; color: var(--ink); }
+.selling-plan-option__save { background: var(--gold); color: var(--ink); font-size: .72rem; font-weight: 800; padding: .1rem .5rem; border-radius: 999px; margin-left: .4rem; }
+.product-card__sub-badge { display: inline-flex; align-items: center; gap: .25rem; font-size: .75rem; font-weight: 800; color: var(--teal-dark); background: rgba(31,179,166,.12); padding: .2rem .55rem; border-radius: 999px; width: fit-content; }
 .product-meta { margin-top: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.2rem; color: var(--ink-soft); font-size: .92rem; }
 
 /* ===== Cart ===== */

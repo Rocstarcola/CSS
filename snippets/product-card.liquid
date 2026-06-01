@@ -23,6 +23,9 @@
       <span class="product-card__vendor">{{ product.vendor }}</span>
     {%- endif -%}
     <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    {%- if product.selling_plan_groups.size > 0 -%}
+      <span class="product-card__sub-badge">🔁 Subscription available</span>
+    {%- endif -%}
     <div class="product-card__price">
       {%- if on_sale -%}
         <span class="now">{{ product.price | money }}</span>

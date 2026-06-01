@@ -2,11 +2,6 @@
 (function () {
   'use strict';
 
-  const money = (cents) =>
-    (window.Shopify && Shopify.formatMoney)
-      ? Shopify.formatMoney(cents, window.themeMoneyFormat)
-      : '$' + (cents / 100).toFixed(2);
-
   /* ---- Footer year ---- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -134,7 +129,7 @@
     window.location.reload();
   });
 
-  /* ---- Product variant selection ---- */
+  /* ---- Product variant + subscription selling-plan selection ---- */
   document.querySelectorAll('[data-product-form]').forEach((form) => {
     const data = form.querySelector('[data-variants]');
     if (!data) return;
@@ -144,30 +139,66 @@
     const priceEl = document.querySelector('[data-product-price]');
     const addBtn = form.querySelector('[data-add-btn]');
 
+    // Unique option input names (option-1, option-2, …)
+    const optionNames = [...new Set(
+      Array.from(form.querySelectorAll('[data-option-index]')).map((el) => el.name)
+    )];
+
     function selectedOptions() {
-      return Array.from(form.querySelectorAll('[data-option-index]')).map((el) => {
-        if (el.type === 'radio') {
-          const checked = form.querySelector(`[name="${el.name}"]:checked`);
-          return checked ? checked.value : null;
-        }
-        return el.value;
-      }).filter((v) => v !== null);
+      return optionNames.map((name) => {
+        const checked = form.querySelector(`[name="${name}"]:checked`);
+        if (checked) return checked.value;
+        const single = form.querySelector(`[name="${name}"]`);
+        return single ? single.value : null;
+      });
     }
-    function update() {
+
+    function selectedPlanId() {
+      const checked = form.querySelector('[data-selling-plan-radio]:checked');
+      return checked && checked.value ? checked.value : null;
+    }
+
+    function matchVariant() {
+      if (optionNames.length === 0) {
+        return variants.find((v) => String(v.id) === String(idInput.value)) || variants[0];
+      }
       const opts = selectedOptions();
-      const match = variants.find((v) => v.options.every((o, i) => o === opts[i]));
+      return variants.find((v) => v.options.every((o, i) => o === opts[i]));
+    }
+
+    function update() {
+      const match = matchVariant();
       if (!match) return;
       idInput.value = match.id;
-      if (priceEl) priceEl.innerHTML = match.available
-        ? money(match.price)
-        : money(match.price) + ' <span class="badge">Sold out</span>';
+
+      const planId = selectedPlanId();
+      const allocations = match.selling_plan_allocations || {};
+      let priceHTML = match.price;
+      if (planId && allocations[planId]) {
+        priceHTML = allocations[planId];
+      } else if (match.on_sale) {
+        priceHTML = `<span class="now">${match.price}</span> <span class="was">${match.compare_at_price}</span>`;
+      }
+      if (!match.available) priceHTML += ' <span class="badge">Sold out</span>';
+      if (priceEl) priceEl.innerHTML = priceHTML;
+
+      // Keep each subscription option's price in sync with the chosen variant
+      form.querySelectorAll('[data-plan-price]').forEach((el) => {
+        const p = allocations[el.dataset.planPrice];
+        if (p) el.textContent = p;
+      });
+      const baseEl = form.querySelector('[data-base-price]');
+      if (baseEl) baseEl.textContent = match.price;
+
       if (addBtn) {
         addBtn.disabled = !match.available;
         addBtn.textContent = match.available ? (addBtn.dataset.label || 'Add to cart') : 'Sold out';
         addBtn.classList.toggle('is-disabled', !match.available);
       }
     }
-    form.querySelectorAll('[data-option-index]').forEach((el) => el.addEventListener('change', update));
+
+    form.querySelectorAll('[data-option-index], [data-selling-plan-radio]')
+      .forEach((el) => el.addEventListener('change', update));
     update();
   });
 

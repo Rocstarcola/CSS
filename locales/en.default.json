@@ -36,7 +36,9 @@
       "from_price": "From {{ price }}",
       "quantity": "Quantity",
       "subscription": "Subscription",
+      "purchase_options": "Purchase options",
       "one_time": "One-time purchase",
+      "subscribe_save": "Subscribe & save",
       "include_taxes": "Tax included.",
       "shipping_policy": "Shipping calculated at checkout."
     },

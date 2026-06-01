@@ -50,10 +50,18 @@ shopify theme push                                   # upload to the store
    (or change the collection in the homepage "Featured collection" section).
 2. **Navigation** — Online Store → Navigation: set up the `main-menu` (Shop,
    How It Works `/#how`, Plans `/#plans`, For Business `/#business`, FAQ `/#faq`).
-3. **Subscriptions / refills** — install a subscriptions app (e.g. Shopify
-   Subscriptions, Recharge, or Seal). Once a product has selling plans, the
-   product page automatically shows "One-time" vs. the subscription options, and
-   the cart shows the refill schedule. No theme code changes needed.
+3. **Subscriptions / refills (Shopify Subscriptions app)** — this theme is set
+   up for Shopify's free first-party **Shopify Subscriptions** app:
+   1. Install **Shopify Subscriptions** from the Shopify App Store (free).
+   2. Create a **subscription plan** (e.g. "Refill Club" — deliver every
+      1 month / 3 months, optional "subscribe & save" discount).
+   3. Apply that plan to your treasure-box / refill products.
+   That's it — no theme code changes. The product page then shows a
+   **"One-time purchase" vs. subscription** picker, updates the price (and shows
+   any "save" discount) when a plan is selected, marks subscription products with
+   a 🔁 badge on cards, passes the chosen `selling_plan` to the cart, and the
+   cart/drawer display the refill schedule. Subscription-only products
+   (`requires_selling_plan`) automatically hide the one-time option.
 4. **Contact form** — the homepage quote form uses Shopify's built-in contact
    form, so submissions email the store's contact email
    (Settings → Store details). No extra service required.
