@@ -3,14 +3,14 @@
     "hero": { "type": "hero", "settings": {} },
     "trust": { "type": "trust-strip", "settings": {} },
     "how": { "type": "how-it-works", "settings": {} },
-    "boxes": {
+    "featured": {
       "type": "featured-collection",
-      "settings": { "collection": "treasure-boxes" }
+      "settings": { "collection": "frontpage" }
     },
     "plans": { "type": "plans", "settings": {} },
     "business": { "type": "business", "settings": {} },
     "faq": { "type": "faq", "settings": {} },
     "contact": { "type": "contact", "settings": {} }
   },
-  "order": ["hero", "trust", "how", "boxes", "plans", "business", "faq", "contact"]
+  "order": ["hero", "trust", "how", "featured", "plans", "business", "faq", "contact"]
 }

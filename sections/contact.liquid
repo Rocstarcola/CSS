@@ -15,41 +15,22 @@
 
       <div class="form-row">
         <label>Your name
-          <input type="text" name="contact[name]" required placeholder="Jane Smith" value="{{ form.name }}">
+          <input type="text" name="contact[name]" required placeholder="Alex Smith" value="{{ form.name }}">
         </label>
-        <label>Business name
-          <input type="text" name="contact[Business]" placeholder="Jane's Diner">
-        </label>
-      </div>
-      <div class="form-row">
         <label>Email
-          <input type="email" name="contact[email]" required placeholder="you@business.com" value="{{ form.email }}">
-        </label>
-        <label>Phone <span class="opt">(optional)</span>
-          <input type="tel" name="contact[phone]" placeholder="(555) 123-4567">
+          <input type="email" name="contact[email]" required placeholder="you@email.com" value="{{ form.email }}">
         </label>
       </div>
-      <div class="form-row">
-        <label>Which box interests you?
-          <select name="contact[Box interest]">
-            <option value="Not sure yet">Not sure yet</option>
-            <option>The Classic Chest</option>
-            <option>The Castle Vault</option>
-            <option>The Mini Stash</option>
-            <option>Custom design</option>
-          </select>
-        </label>
-        <label>Refill plan?
-          <select name="contact[Refill plan]">
-            <option value="Just the box for now">Just the box for now</option>
-            <option>Monthly refills</option>
-            <option>Quarterly refills</option>
-            <option>Multi-shop / bulk</option>
-          </select>
-        </label>
-      </div>
-      <label>Tell us more <span class="opt">(optional)</span>
-        <textarea name="contact[body]" rows="4" placeholder="Type of business, typical kid ages, how many locations…">{{ form.body }}</textarea>
+      <label>What's this about?
+        <select name="contact[Topic]">
+          <option>General question</option>
+          <option>Custom design request</option>
+          <option>Surprise Box question</option>
+          <option>Help with an order</option>
+        </select>
+      </label>
+      <label>Tell us more
+        <textarea name="contact[body]" rows="4" placeholder="Describe your question or the custom gadget you have in mind…">{{ form.body }}</textarea>
       </label>
       <button type="submit" class="btn btn-primary full big">{{ section.settings.button_label }}</button>
     {%- endform -%}
@@ -60,10 +41,10 @@
 {
   "name": "Contact / quote form",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get Started" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Let's fill your counter with treasure" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Tell us about your business and we'll send a free, no-pressure quote." },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send my quote request" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Say hi" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions or a custom idea?" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Want a custom gadget printed, or have a question about the Surprise Box? Drop us a line." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Send message" }
   ],
   "presets": [{ "name": "Contact / quote form" }]
 }
