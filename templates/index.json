@@ -4,83 +4,14 @@
       "type": "hero",
       "settings": {
         "eyebrow": "✨ 3D-printed in-house · Made to order",
-        "heading": "Cool 3D-printed gadgets, made just for you.",
-        "subheading": "From a kids' bike moto sign you can personalize to treasure boxes, desk toys and clever everyday tools — each gadget is 3D-printed to order, just for you.",
+        "heading": "Welcome to Gadgetron",
+        "subheading": "Cool 3D-printed gadgets, made to order — from a personalized kids' bike moto sign to treasure boxes, desk toys and more.",
         "button_label": "Shop gadgets",
-        "button_label_2": "How it works",
-        "button_link_2": "/#how",
+        "button_label_2": "Contact us",
+        "button_link_2": "/pages/contact",
         "points": "🛠️ Made to order, 🎨 Custom & personalized, ⚙️ 3D-printed in-house"
       }
-    },
-    "trust": {
-      "type": "trust-strip",
-      "settings": {},
-      "blocks": {
-        "t1": { "type": "item", "settings": { "title": "100%", "text": "3D-printed in-house" } },
-        "t2": { "type": "item", "settings": { "title": "Custom", "text": "Personalize your print" } },
-        "t3": { "type": "item", "settings": { "title": "Made to order", "text": "Fresh every time" } },
-        "t4": { "type": "item", "settings": { "title": "Fast", "text": "Quick turnaround" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4"]
-    },
-    "how": {
-      "type": "how-it-works",
-      "settings": {
-        "eyebrow": "The Process",
-        "heading": "How it works",
-        "subheading": "From browse to doorstep in four simple steps."
-      },
-      "blocks": {
-        "s1": { "type": "step", "settings": { "title": "Browse the shop", "text": "Explore our 3D-printed gadgets — signs, treasure boxes, desk toys and more." } },
-        "s2": { "type": "step", "settings": { "title": "Make it yours", "text": "Pick your colors and add personalization like a name or number." } },
-        "s3": { "type": "step", "settings": { "title": "We print to order", "text": "Each gadget is freshly 3D-printed in-house just for you." } },
-        "s4": { "type": "step", "settings": { "title": "Shipped to your door", "text": "We pack it up and send it out fast." } }
-      },
-      "block_order": ["s1", "s2", "s3", "s4"]
-    },
-    "featured": {
-      "type": "featured-collection",
-      "settings": {
-        "eyebrow": "Featured",
-        "heading": "Fresh off the printer",
-        "subheading": "Our latest 3D-printed gadgets, ready to make to order.",
-        "collection": "frontpage",
-        "limit": 6,
-        "per_row": "3",
-        "button_label": "Shop all gadgets",
-        "show_placeholders": true
-      }
-    },
-    "business": {
-      "type": "business",
-      "settings": {
-        "eyebrow": "Why Gadgetron",
-        "heading": "Small-batch 3D prints you'll actually love",
-        "text": "Every gadget is printed to order in-house — no warehouses of mass-produced plastic. Pick a color, add a name, or request a fully custom design.",
-        "who_title": "Shop by category",
-        "who_list": "🏁 Kids' signs\n🧰 Treasure boxes\n🎲 Desk toys & fidgets\n🔧 Gadgets & tools\n🏠 Home & organization\n🎁 Gifts"
-      },
-      "blocks": {
-        "b1": { "type": "benefit", "settings": { "icon": "🛠️", "title": "Made to order", "text": "Printed fresh when you order, in the color you pick." } },
-        "b2": { "type": "benefit", "settings": { "icon": "🎨", "title": "Custom designs", "text": "Have an idea? We can design and print it for you." } },
-        "b3": { "type": "benefit", "settings": { "icon": "🔤", "title": "Personalized", "text": "Add a name or number to make it one of a kind." } },
-        "b4": { "type": "benefit", "settings": { "icon": "🌎", "title": "Low-waste", "text": "Printed in-house with durable, plant-based PLA." } }
-      },
-      "block_order": ["b1", "b2", "b3", "b4"]
-    },
-    "faq": {
-      "type": "faq",
-      "settings": { "eyebrow": "Questions", "heading": "Frequently asked" },
-      "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "Can I personalize my gadget?", "answer": "<p>Yes! Products marked customizable let you add a name or number right on the product page — perfect for the kids' bike moto sign.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "Do you really sell treasure boxes?", "answer": "<p>We do! Our 3D-printed treasure boxes are one of our most popular products — find them in the shop alongside signs, desk toys and more.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "What are your gadgets made of?", "answer": "<p>Durable, plant-based PLA plastic, 3D-printed in-house. Sturdy, lightweight, and available in a range of colors.</p>" } },
-        "q4": { "type": "qa", "settings": { "question": "Can I request a fully custom design?", "answer": "<p>Absolutely. Send us your idea through the contact form and we'll see what we can make.</p>" } },
-        "q5": { "type": "qa", "settings": { "question": "How long does shipping take?", "answer": "<p>Because gadgets are printed to order, most ship within a few business days. Free shipping on orders over $50.</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"]
-    },
-    "contact": { "type": "contact", "settings": {} }
+    }
   },
-  "order": ["hero", "trust", "how", "featured", "business", "faq", "contact"]
+  "order": ["hero"]
 }
