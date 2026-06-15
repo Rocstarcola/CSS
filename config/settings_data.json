@@ -17,8 +17,7 @@
     "show_vendor": false,
     "card_quick_add": true,
     "cart_type": "drawer",
-    "show_cart_note": true,
-    "content_for_index": []
+    "show_cart_note": true
   },
   "presets": {
     "Gadgetron": {
