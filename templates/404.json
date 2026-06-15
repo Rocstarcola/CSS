@@ -11,7 +11,22 @@
   "sections": {
     "main": {
       "type": "main-404",
+      "disabled": true,
       "settings": {}
+    },
+    "featured_collection_FDCrbm": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "eyebrow": "Featured",
+        "heading": "Fresh off the printer",
+        "subheading": "Our most popular 3D-printed gadgets, ready to make to order.",
+        "collection": "",
+        "limit": 6,
+        "per_row": "3",
+        "button_label": "Shop all gadgets",
+        "show_placeholders": true
+      }
     },
     "trust_strip_E7Mj4Q": {
       "type": "trust-strip",
@@ -57,6 +72,7 @@
   },
   "order": [
     "main",
+    "featured_collection_FDCrbm",
     "trust_strip_E7Mj4Q"
   ]
 }
