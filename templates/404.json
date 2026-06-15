@@ -21,8 +21,8 @@
         "eyebrow": "Featured",
         "heading": "Fresh off the printer",
         "subheading": "Our most popular 3D-printed gadgets, ready to make to order.",
-        "collection": "",
-        "limit": 6,
+        "collection": "frontpage",
+        "limit": 2,
         "per_row": "3",
         "button_label": "Shop all gadgets",
         "show_placeholders": true
