@@ -5,7 +5,7 @@
     "announcement": {
       "type": "announcement-bar",
       "settings": {
-        "text": "Free local delivery on first orders · Subscribe & save on refills 🎁",
+        "text": "Free shipping over $50 · Custom 3D-printed gadgets, made to order 🛠️",
         "show": true
       }
     },

@@ -82,10 +82,17 @@
 
   function formToCartJSON(form) {
     const data = new FormData(form);
-    const payload = { items: [{ id: Number(data.get('id')), quantity: Number(data.get('quantity') || 1) }] };
+    const item = { id: Number(data.get('id')), quantity: Number(data.get('quantity') || 1) };
     const sellingPlan = data.get('selling_plan');
-    if (sellingPlan) payload.items[0].selling_plan = Number(sellingPlan);
-    return payload;
+    if (sellingPlan) item.selling_plan = Number(sellingPlan);
+    // Collect line-item properties (e.g. personalization text)
+    const props = {};
+    for (const [key, value] of data.entries()) {
+      const m = key.match(/^properties\[(.+)\]$/);
+      if (m && String(value).trim() !== '') props[m[1]] = value;
+    }
+    if (Object.keys(props).length) item.properties = props;
+    return { items: [item] };
   }
 
   /* ---- Quantity steppers ---- */

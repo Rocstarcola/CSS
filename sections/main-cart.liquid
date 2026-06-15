@@ -13,6 +13,12 @@
               <div class="cart-item__title"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
               {%- unless item.variant.title contains 'Default' -%}<div class="cart-item__variant">{{ item.variant.title }}</div>{%- endunless -%}
               {%- if item.selling_plan_allocation -%}<div class="cart-item__selling-plan">🔁 {{ item.selling_plan_allocation.selling_plan.name }}</div>{%- endif -%}
+              {%- for prop in item.properties -%}
+                {%- assign prop_first = prop.first -%}
+                {%- unless prop.last == blank or prop_first contains '_' -%}
+                  <div class="cart-item__property">{{ prop.first }}: {{ prop.last }}</div>
+                {%- endunless -%}
+              {%- endfor -%}
               <div class="qty-stepper" style="margin-top:.5rem;">
                 <input type="number" min="0" value="{{ item.quantity }}" data-cart-qty="{{ item.key }}" aria-label="Quantity for {{ item.product.title }}">
               </div>

@@ -23,7 +23,7 @@
 
     {%- paginate collection.products by section.settings.per_page -%}
       {%- if collection.products.size > 0 -%}
-        <div class="collection-grid {% if section.settings.per_row == 4 %}cols-4{% endif %}">
+        <div class="collection-grid {% if section.settings.per_row == '4' %}cols-4{% endif %}">
           {%- for product in collection.products -%}
             {% render 'product-card', product: product %}
           {%- endfor -%}

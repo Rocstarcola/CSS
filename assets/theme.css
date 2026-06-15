@@ -290,6 +290,9 @@ img { max-width: 100%; height: auto; display: block; }
 .cart-item__title { font-family: "Baloo 2"; font-weight: 700; font-size: 1.1rem; }
 .cart-item__title a { color: var(--ink); }
 .cart-item__variant, .cart-item__selling-plan { color: var(--ink-soft); font-size: .9rem; }
+.cart-item__property { color: var(--ink-soft); font-size: .85rem; }
+.personalization { margin-top: .4rem; }
+.personalization small { display: block; margin-top: .3rem; }
 .cart-item__price { font-weight: 800; }
 .cart-item__remove { background: none; border: 0; color: var(--coral); cursor: pointer; font-weight: 700; font-size: .85rem; }
 .cart-footer { display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-end; margin-top: 2rem; }

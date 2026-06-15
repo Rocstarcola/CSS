@@ -10,6 +10,12 @@
             <div class="cart-item__title" style="font-size:1rem;"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
             {%- unless item.variant.title contains 'Default' -%}<div class="cart-item__variant">{{ item.variant.title }}</div>{%- endunless -%}
             {%- if item.selling_plan_allocation -%}<div class="cart-item__selling-plan">🔁 {{ item.selling_plan_allocation.selling_plan.name }}</div>{%- endif -%}
+            {%- for prop in item.properties -%}
+              {%- assign prop_first = prop.first -%}
+              {%- unless prop.last == blank or prop_first contains '_' -%}
+                <div class="cart-item__property">{{ prop.first }}: {{ prop.last }}</div>
+              {%- endunless -%}
+            {%- endfor -%}
             <button type="button" class="cart-item__remove" data-cart-remove="{{ item.key }}">{{ 'cart.general.remove' | t }}</button>
           </div>
           <div class="cart-item__price">{{ item.final_line_price | money }}</div>

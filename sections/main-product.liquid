@@ -113,6 +113,24 @@
             </fieldset>
           {%- endif -%}
 
+          {%- liquid
+            assign show_personalization = section.settings.show_personalization
+            if product.tags contains 'customizable' or product.tags contains 'Customizable' or product.tags contains 'personalized' or product.tags contains 'Personalized'
+              assign show_personalization = true
+            endif
+            assign p_label = section.settings.personalization_label | default: 'Personalization'
+          -%}
+          {%- if show_personalization -%}
+            <div class="form-field personalization">
+              <label>{{ p_label }}{% if section.settings.personalization_required %} <span class="opt">(required)</span>{% else %} <span class="opt">(optional)</span>{% endif %}
+                <input type="text" name="properties[{{ p_label }}]" maxlength="60" placeholder="{{ section.settings.personalization_placeholder }}" {% if section.settings.personalization_required %}required{% endif %}>
+              </label>
+              {%- if section.settings.personalization_help != blank -%}
+                <small style="color:var(--ink-soft);">{{ section.settings.personalization_help }}</small>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
           <div class="qty-row">
             <div class="qty-stepper">
               <button type="button" data-qty-minus aria-label="Decrease quantity">−</button>
@@ -141,7 +159,14 @@
 {% schema %}
 {
   "name": "Product information",
-  "settings": [],
+  "settings": [
+    { "type": "header", "content": "Personalization" },
+    { "type": "checkbox", "id": "show_personalization", "label": "Show personalization field on all products", "info": "Always on for products tagged 'customizable' or 'personalized'.", "default": false },
+    { "type": "text", "id": "personalization_label", "label": "Field label", "default": "Personalization" },
+    { "type": "text", "id": "personalization_placeholder", "label": "Placeholder", "default": "e.g. Max · #12" },
+    { "type": "text", "id": "personalization_help", "label": "Help text", "default": "Enter the name or number to print on your sign." },
+    { "type": "checkbox", "id": "personalization_required", "label": "Make personalization required", "default": false }
+  ],
   "blocks": [],
   "presets": [{ "name": "Product information" }]
 }

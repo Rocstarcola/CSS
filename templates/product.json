@@ -5,11 +5,13 @@
       "type": "featured-collection",
       "settings": {
         "eyebrow": "You may also like",
-        "heading": "More treasure",
+        "heading": "More from Gadgetron",
         "subheading": "",
+        "collection": "frontpage",
         "limit": 4,
         "per_row": "4",
-        "button_label": ""
+        "button_label": "",
+        "show_placeholders": false
       }
     }
   },
