@@ -37,7 +37,7 @@
     </div>
     {%- if show_quick_add and product.available -%}
       {%- if product.variants.size == 1 -%}
-        {%- form 'product', product, data-ajax-cart: '', class: 'product-card__form' -%}
+        {%- form 'product', product, data-ajax-cart: 'true', class: 'product-card__form' -%}
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           <input type="hidden" name="quantity" value="1">
           <button type="submit" class="btn btn-small full">Add to cart</button>

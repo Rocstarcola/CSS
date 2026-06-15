@@ -33,7 +33,7 @@
           {%- endif -%}
         </div>
 
-        {%- form 'product', product, id: 'product-form', class: 'product-form', data-product-form: '', data-ajax-cart: '' -%}
+        {%- form 'product', product, id: 'product-form', class: 'product-form', data-product-form: 'true', data-ajax-cart: 'true' -%}
           <script type="application/json" data-variants>
             [
               {%- for v in product.variants -%}
